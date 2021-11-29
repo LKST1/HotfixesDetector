@@ -51,7 +51,7 @@ def Bot():
         ReadfortweetModification = "New Hotfix Modification : \n"
         if olddata[i] != data[i] :
           print(f"{Fore.LIGHTCYAN_EX}-> Hotfix Modification Detected !!!\n ID : {i}\n{Fore.LIGHTYELLOW_EX}-> OLD : {olddata[i]}\n{Fore.YELLOW}-> NEW : {data[i]}")
-          ReadfortweetModification = ReadfortweetModification + f"ID: {i} \n\nOLD: {olddata[i]}\n\nNew: {data[i]}\n\n\n"
+          ReadfortweetModification = ReadfortweetModification + f"ID: {i} \n\nOld: {olddata[i]}\n\nNew: {data[i]}\n\n\n"
           tweeting(Readfortweet=ReadfortweetModification,text="-> Hotfix Modification Tweeted successfully")
     Odata = open("data/oldhotfixes.json","w+")
     json.dump(data,Odata,indent=3)
