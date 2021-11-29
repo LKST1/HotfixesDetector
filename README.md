@@ -2,7 +2,7 @@
 
 - #### You Should Edit { yourTokens.json } With Your Twitter Tokens To Post Updates On Twitter
 - #### Need [Twitter Developer account](https://developer.twitter.com/en/portal/dashboard) [The Bot Won't Work Without Twitter Tokens]
-- #### The Bot Detects New Hotfixes That Got Added To The Game Or Even The Updated Strings Of Hotfixs
+- #### The Bot Detects New Hotfixes That Got Added To The Game Or Even The Updated Strings Of Hotfixes
 
 
 # Example :
