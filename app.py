@@ -30,7 +30,7 @@ def tweeting(Readfortweet,text="-> New Hotfix Tweeted successfully"):
     print(f"{Fore.RED}-> Failed to tweet")
 #######################################################################
 def Bot():
-
+  Tweet = False
   data = get("https://benbot.app/api/v1/hotfixes").json()[""]
   Odata = open("data/oldhotfixes.json","r+")
   olddata = json.load(Odata)
@@ -42,21 +42,25 @@ def Bot():
     print(f"{Fore.CYAN}-> New Hotfix Detected !!!")
     for i in data :
       if i not in olddata :
+        Tweet = True
         print(f"New Hotfix : {Fore.LIGHTYELLOW_EX}-> ID :{i}")
         dataget = data[i] 
-
         ReadfortweetNew = ReadfortweetNew + f"• {dataget}\n"
-        tweeting(Readfortweet=ReadfortweetNew)
-      elif i in olddata :
+    if Tweet == True :
+      tweeting(Readfortweet=ReadfortweetNew)
+    else :
+      pass
+    for i in data :
+      if i in olddata :
         ReadfortweetModification = "New Hotfix Modification : \n"
         if olddata[i] != data[i] :
-          print(f"{Fore.LIGHTCYAN_EX}-> Hotfix Modification Detected !!!\n>> ID : {i}\n{Fore.LIGHTYELLOW_EX}-> OLD : {olddata[i]}\n{Fore.YELLOW}-> NEW : {data[i]}")
-          ReadfortweetModification = ReadfortweetModification + f"ID: {i} \n\nOld: {olddata[i]}\n\nNew: {data[i]}\n\n\n"
+          print(f"{Fore.LIGHTCYAN_EX}-> Hotfix Modification Detected !!!\n ID : {i}\n{Fore.LIGHTYELLOW_EX}-> OLD : {olddata[i]}\n{Fore.YELLOW}-> NEW : {data[i]}")
+          ReadfortweetModification = ReadfortweetModification + f"ID: {i} \n\nOLD: {olddata[i]}\n\nNew: {data[i]}\n\n\n"
           tweeting(Readfortweet=ReadfortweetModification,text="-> Hotfix Modification Tweeted successfully")
     Odata = open("data/oldhotfixes.json","w+")
     json.dump(data,Odata,indent=3)
 
-if "HI"=="HI":
+if "HI"== "HI":
   while True:
     try:
       Bot()
